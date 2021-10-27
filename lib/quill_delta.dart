@@ -730,6 +730,13 @@ class DeltaIterator {
   }
 
   bool get hasNext => peekLength() < maxLength;
+  
+  Operation? peek() {
+    if (_index < delta.length) {
+      return delta._operations[_index];
+    }
+    return null;
+  }
 
   /// Returns length of next operation without consuming it.
   ///
